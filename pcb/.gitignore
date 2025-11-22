@@ -1,0 +1,23 @@
+# Altium Designer
+
+History/
+__Previews/
+
+Project Logs*/
+Project Outputs*/
+
+debug.log
+Status Report.txt
+
+*.PcbDoc.htm
+*.SchDoc.htm
+
+*.PrjPcbStructure
+
+*.SchDocPreview
+*.PcbDocPreview
+
+*.Annotation
+*.Annotation.zip
+
+.~lock.*
