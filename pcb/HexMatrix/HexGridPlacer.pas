@@ -1,6 +1,12 @@
-Procedure PlaceComponentsInHexGrid(Size : Integer, CompList : TInterfaceList);
+Function CalculateHexGridSize(CompCount : Integer): Integer;
+Begin
+     Result := Floor((3 + Sqrt(12 * CompCount - 3)) / 6)
+End;
+
+Procedure PlaceComponentsInHexGrid(CompList : TInterfaceList);
 Var
    Comp             : IPCB_Component;
+   Size             : Integer;
    i                : Integer;
 
    r, q, dq, q0, q1 : Integer;
@@ -9,6 +15,10 @@ Var
    LeftRight        : Boolean;
 
 Begin
+     Size := CalculateHexGridSize(CompList.Count);
+
+     ShowMessage('Size: ' + IntToStr(Size));
+
      For r := Size - 1 DownTo -Size + 1 Do
      Begin
           qLeft     := -r * Ord(r < 0)  - (Size - 1);
@@ -61,6 +71,6 @@ Begin
 
      PCBBoard.BoardIterator_Destroy(CompIter);
 
-     PlaceComponentsInHexGrid(3, CompList);
+     PlaceComponentsInHexGrid(CompList);
 End;
 
